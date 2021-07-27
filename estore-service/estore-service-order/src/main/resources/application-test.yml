@@ -17,6 +17,13 @@ spring:
       server-addr: localhost:8848
       discovery:
         server-addr: ${spring.cloud.nacos.server-addr}
+    # 配置Sentinel流量控制组件
+    sentinel:
+      transport:
+        # http服务的端口 用于规则设置生效时使用
+        port: 8719
+        # sentinel控制台服务端的地址
+        dashboard: http://localhost:8080
   # redis配置
   redis:
     host: localhost
