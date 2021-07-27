@@ -34,7 +34,9 @@ public class CustomGlobalFilter implements GlobalFilter, Ordered {
         // 2. 获取响应对象response
         ServerHttpResponse response = exchange.getResponse();
         // 3. 获取请求参数中的token的值
-        String token = request.getQueryParams().getFirst("token"); // 这里的token不在请求头requestHeader
+//        String token = request.getQueryParams().getFirst("token");
+        // 获取请求头requestHeader的token
+        String token = request.getHeaders().getFirst("token");
         // 4. 判断验证登录携带的token是否正确
         if (!"123456".equals(token)) {
             // 错误 返回401 权限不足
