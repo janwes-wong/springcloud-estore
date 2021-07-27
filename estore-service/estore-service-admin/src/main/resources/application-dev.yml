@@ -1,0 +1,35 @@
+# 服务端口号
+server:
+  port: 28000
+spring:
+  application:
+    # 服务应用名
+    name: estore-service-admin
+  # MySQL数据源
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/estore_test?useSSL=false&useUnicode=true&characterEncoding=UTF-8&serverTimezone=&serverTimezone=Asia/Shanghai
+    username: root
+    password: root
+  cloud:
+    # nacos注册中心
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+# mybatis-plus配置
+mybatis-plus:
+  mapper-locations: classpath*:/mapper/**/*.xml
+  configuration:
+    # 配置控制台打印带参数sql执行语句
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+# knife4j配置
+knife4j:
+  # 开启增强配置
+  enable: true
+  # 如果为true则开启生产环境屏蔽
+  production: false
+  basic:
+    enable: true
+    username: ${spring.application.name}
+    password: 123
