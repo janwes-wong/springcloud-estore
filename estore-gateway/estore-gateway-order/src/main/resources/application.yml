@@ -1,0 +1,44 @@
+# 服务端口号
+server:
+  port: 16000
+spring:
+  application:
+    # 服务应用名
+    name: estore-order-gateway
+  cloud:
+    # nacos注册中心
+    nacos:
+      server-addr: localhost:8848
+      discovery:
+        server-addr: ${spring.cloud.nacos.server-addr}
+    # 网关
+    gateway:
+      discovery:
+        locator:
+          # 开启从注册中心动态创建路由的功能，利用微服务名进行路由
+          enabled: true
+      # 网关gateway方式配置全局跨域
+      globalcors:
+        cors-configurations:
+          '[/**]': # 匹配所有请求
+            allowedOrigins: "*" #跨域处理 允许所有的域
+            allowedHeaders: "*"
+            allowedMethods: # 支持的方法
+              - GET
+              - POST
+              - PUT
+              - DELETE
+      # 路由配置(路由(route)： 指指定转发请求的规则)
+      routes:
+        - id: order # 指定一个唯一标识
+          #uri: http://localhost:18801 # 服务的ip和端口(硬编码)
+          uri: lb://estore-service-order # 路由转发到的服务ip和端口 estore-service-order-指负载均衡的服务名  lb(负载均衡策略，默认为轮询) --> LoadBalancerClient
+          # 断言Predicate函数：路由转发规则的触发条件
+          predicates:
+            #- Path=/** # 请求转发的条件 匹配格式 以路径方式匹配
+            - Path=/order/** # 表示以/order开头的路径全部路由到order微服务中
+          filters:
+            # 请求地址添加路径前缀过滤器 例：表示当请求 http://localhost:18804/1234 将会被gateway网关接收并转发到 http://localhost:18801/item/1234
+            #- PrefixPath=/item
+            # 请求地址去除一个前缀路径 例：表示当请求 http://localhost:18804/api/item/123 将会被gateway网关接收并转发到 http://localhost:18801/item/123
+            - StripPrefix=1

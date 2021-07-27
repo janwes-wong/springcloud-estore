@@ -10,7 +10,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>estore-gateway</artifactId>
+    <packaging>pom</packaging>
     <description>网关</description>
+    <modules>
+        <module>estore-gateway-order</module>
+    </modules>
 
     <dependencies>
         <!--gateway网关依赖-->
@@ -23,6 +27,12 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+
+        <!--Nacos配置中心起步依赖-->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
         </dependency>
     </dependencies>
 </project>

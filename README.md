@@ -9,4 +9,5 @@
 - sentinel dashboard address：http://localhost:8080
 - 详见官方网址 https://sentinelguard.io/zh-cn/index.html
 - 详见官网配置 https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel
+### gateway 网关
 ### swagger2 + knife4j 接口文档技术
