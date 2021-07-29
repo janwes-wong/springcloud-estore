@@ -28,6 +28,30 @@ spring:
   redis:
     host: localhost
     port: 6379
+    password: 123456
+    jedis:
+      pool:
+        # 连接池最大连接数（使用负值表示没有限制）
+        max-active: 200
+        # 连接池最大阻塞等待时间（使用负值表示没有限制）
+        max-wait: -1
+        # 连接池中的最大空闲连接
+        max-idle: 10
+        # 连接池中的最小空闲连接
+        min-idle: 0
+    # 连接超时时间（毫秒）
+    timeout: 1000
+  # MongoDB配置
+  data:
+    mongodb:
+      # 可通过配置uri连接MongoDB server
+      #uri: mongodb://192.168.239.132:27017/estore_test
+      host: 192.168.239.132
+      port: 27017 # 默认端口号 27017（可省略）
+      username: admin
+      password: 123456
+      # 数据库名
+      database: estore_test
 # openfeign配置
 feign:
   client:

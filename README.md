@@ -11,3 +11,7 @@
 - 详见官网配置 https://github.com/alibaba/spring-cloud-alibaba/wiki/Sentinel
 ### gateway 网关
 ### swagger2 + knife4j 接口文档技术
+### 数据库database
+- MySQL
+- redis
+- MongoDB
