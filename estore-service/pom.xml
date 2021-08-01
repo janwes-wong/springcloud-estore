@@ -16,6 +16,7 @@
         <module>estore-service-order</module>
         <module>estore-service-item</module>
         <module>estore-service-admin</module>
+        <module>estore-service-search</module>
     </modules>
 
     <dependencies>
