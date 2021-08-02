@@ -1,0 +1,7 @@
+# 服务端口号
+server:
+  port: 18003
+spring:
+  application:
+    # 服务应用名
+    name: estore-service-search
