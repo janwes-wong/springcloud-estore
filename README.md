@@ -15,3 +15,5 @@
 - MySQL
 - redis
 - MongoDB
+### Skywalking 项目链路追踪
+### xxl-job 分布式任务调度
