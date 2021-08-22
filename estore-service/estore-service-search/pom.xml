@@ -12,6 +12,10 @@
     <artifactId>estore-service-search</artifactId>
     <description>数据检索微服务</description>
 
+    <properties>
+        <elasticsearch.version>7.13.4</elasticsearch.version>
+    </properties>
+
     <dependencies>
         <!--elasticsearch搜索引擎-->
         <dependency>
@@ -33,20 +37,21 @@
             </exclusions>
         </dependency>
 
+        <!--引入对应版本依赖需与安装时的elasticsearch版本一致-->
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-high-level-client</artifactId>
-            <version>7.4.0</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch.client</groupId>
             <artifactId>elasticsearch-rest-client</artifactId>
-            <version>7.4.0</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
         <dependency>
             <groupId>org.elasticsearch</groupId>
             <artifactId>elasticsearch</artifactId>
-            <version>7.4.0</version>
+            <version>${elasticsearch.version}</version>
         </dependency>
     </dependencies>
 </project>
