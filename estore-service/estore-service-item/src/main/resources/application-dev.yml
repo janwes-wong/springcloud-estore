@@ -16,7 +16,12 @@ spring:
     nacos:
       server-addr: localhost:8848
       discovery:
+        namespace: dev
         server-addr: ${spring.cloud.nacos.server-addr}
+      config:
+        namespace: dev
+        server-addr: ${spring.cloud.nacos.server-addr}
+        file-extension: yaml # spring cloud默认为该微服务拉取的是后缀为properties的配置文件
   # redis配置
   redis:
     host: localhost
