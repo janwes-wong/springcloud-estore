@@ -16,9 +16,11 @@ spring:
     nacos:
       server-addr: localhost:8848
       discovery:
+        # 命名空间。值是namespace对应的id，id值可以在Nacos的控制台获取，也可以自定义id不采用Nacos生成的id
         namespace: dev
         server-addr: ${spring.cloud.nacos.server-addr}
       config:
+        # 命名空间。值是namespace对应的 id，id 值可以在 Nacos 的控制台获取，也可以自定义id不采用Nacos生成的id
         namespace: dev
         server-addr: ${spring.cloud.nacos.server-addr}
         file-extension: yaml # spring cloud默认为该微服务拉取的是后缀为properties的配置文件
